@@ -19,7 +19,7 @@ Only the following endpoints have been implemented so far:
 	- Current Prices
 
 
-Write your main program. This exampe will poll every single for the latest ticker data.
+Write your main program. This example will poll every single for the latest ticker data.
 
 ```
 package main
