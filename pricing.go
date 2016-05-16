@@ -10,6 +10,7 @@ import (
 	"github.com/pkg/errors"
 )
 
+// GetPrices will get pricing information for a specified list of Instruments within an Account.
 func (c *Client) GetPrices(accountID string, instruments []string, since string) (*PricesContainer, error) {
 	var result PricesContainer
 	u, err := url.Parse(c.Host)

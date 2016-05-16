@@ -1,25 +1,23 @@
 package oanda
 
-type Account struct {
+// AccountContainer contains a slice of AccountProperty
+type AccountContainer struct {
 	AccountProperties []AccountProperty `json:"accounts"`
 }
 
+// AccountProperty contain properties related to an Account.
 type AccountProperty struct {
 	ID           string   `json:"id"`
 	MT4AccountID int      `json:"mt4AccountID"`
 	Tags         []string `json:"tags"`
 }
 
-type AccountID struct {
-	Type    string `json:"Type"`
-	Format  string `json:"Format"`
-	Example string `json:"Example"`
-}
-
+// PricesContainer contains a slice of Price
 type PricesContainer struct {
 	Prices []Price
 }
 
+// Price contains a current price at a single point in time
 type Price struct {
 	InstrumentName string        `json:"instrument"`
 	Time           string        `json:"time"`
@@ -30,6 +28,7 @@ type Price struct {
 	CloseoutAsk    string        `json:"closeOutAsk"`
 }
 
+// PriceBucket contains pricing and liquidity information for a Price
 type PriceBucket struct {
 	Price     string `json:"price"`
 	Liquidity int    `json:"liquidity"`

@@ -1,3 +1,4 @@
+// Package oanda is an implementation of the new V20 REST API from Oanda in Go
 package oanda
 
 import (
@@ -8,6 +9,7 @@ import (
 	"github.com/pkg/errors"
 )
 
+// Client is an instance of the Oanda client
 type Client struct {
 	Token  string
 	Client *http.Client
@@ -43,6 +45,7 @@ func newClient(env string, token string, httpClient *http.Client) (*Client, erro
 	}, nil
 }
 
+// NewFxPracticeClient will return a new instance of an Oanda client, ready for practice trading
 func NewFxPracticeClient(token string) (*Client, error) {
 	if token == "" {
 		return nil, errors.New("No token provided")
@@ -50,6 +53,7 @@ func NewFxPracticeClient(token string) (*Client, error) {
 	return newClient("fxpractice", token, nil)
 }
 
+// NewFxClient will return a new instance of an Oanda client, ready for live trading
 func NewFxClient(token string) (*Client, error) {
 	if token == "" {
 		return nil, errors.New("No token provided")

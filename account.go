@@ -10,8 +10,10 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (c *Client) ListAccounts() (*Account, error) {
-	result := &Account{}
+
+// ListAccounts will get a list of all Accounts authorized for the provided token.
+func (c *Client) ListAccounts() (*AccountContainer, error) {
+	result := &AccountContainer{}
 	u, err := url.Parse(c.Host)
 
 	if err != nil {
@@ -44,8 +46,18 @@ func (c *Client) ListAccounts() (*Account, error) {
 
 	return result, nil
 }
+
+// AccountDetails will get the full details for a single Account that a client has access to. Full pending Order, open Trade and open Position representations are provided.
 func (c *Client) AccountDetails()     {}
+
+// AccountSummary will get a summary for a single Account that a client has access to.
 func (c *Client) AccountSummary()     {}
+
+// AccountInstruments will get the list of tradeable instruments for the given Account.
 func (c *Client) AccountInstruments() {}
+
+// ConfigureAccount will set the client-configurable portions of an Account.
 func (c *Client) ConfigureAccount()   {}
+
+// PollAccountUpdates will poll an Account for its current state and changes since a specified TransactionID.
 func (c *Client) PollAccountUpdates() {}
