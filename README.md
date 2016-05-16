@@ -21,7 +21,7 @@ Only the following endpoints have been implemented so far:
 
 Write your main program. This example will poll every single for the latest ticker data.
 
-```
+```go
 package main
 
 import (
