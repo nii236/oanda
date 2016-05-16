@@ -1,0 +1,3 @@
+package: github.com/nii236/oanda
+import:
+- package: github.com/pkg/errors
