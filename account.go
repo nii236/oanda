@@ -10,7 +10,6 @@ import (
 	"github.com/pkg/errors"
 )
 
-
 // ListAccounts will get a list of all Accounts authorized for the provided token.
 func (c *Client) ListAccounts() (*AccountContainer, error) {
 	result := &AccountContainer{}
@@ -48,16 +47,26 @@ func (c *Client) ListAccounts() (*AccountContainer, error) {
 }
 
 // AccountDetails will get the full details for a single Account that a client has access to. Full pending Order, open Trade and open Position representations are provided.
-func (c *Client) AccountDetails()     {}
+func (c *Client) AccountDetails() error {
+	return errors.New("Not implemented yet")
+}
 
 // AccountSummary will get a summary for a single Account that a client has access to.
-func (c *Client) AccountSummary()     {}
+func (c *Client) AccountSummary() error {
+	return errors.New("Not implemented yet")
+}
 
 // AccountInstruments will get the list of tradeable instruments for the given Account.
-func (c *Client) AccountInstruments() {}
+func (c *Client) AccountInstruments() error {
+	return errors.New("Not implemented yet")
+}
 
 // ConfigureAccount will set the client-configurable portions of an Account.
-func (c *Client) ConfigureAccount()   {}
+func (c *Client) ConfigureAccount() error {
+	return errors.New("Not implemented yet")
+}
 
 // PollAccountUpdates will poll an Account for its current state and changes since a specified TransactionID.
-func (c *Client) PollAccountUpdates() {}
+func (c *Client) PollAccountUpdates() error {
+	return errors.New("Not implemented yet")
+}

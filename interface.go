@@ -1,14 +1,13 @@
 package oanda
 
-
 // Accounter contains methods that handle account information and details for a user
 type Accounter interface {
 	ListAccounts() (*AccountContainer, error)
-	AccountDetails()
-	AccountSummary()
-	AccountInstruments()
-	ConfigureAccount()
-	PollAccountUpdates()
+	AccountDetails() error
+	AccountSummary() error
+	AccountInstruments() error
+	ConfigureAccount() error
+	PollAccountUpdates() error
 }
 
 // Transactioner contains methods that handle transaction information for a user
@@ -63,5 +62,6 @@ type Orderer interface {
 type Userer interface {
 	UserAccountList()
 }
+
 // Streamer contains methods that handle streaming information for a user
 type Streamer interface{}
