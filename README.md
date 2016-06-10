@@ -7,7 +7,7 @@ Get the package:
 brew install glide
 go get -d github.com/nii236/oanda
 cd $GOPATH/src/github.com/nii236/oanda/
-glide up
+glide install
 ```
 
 ## Usage
