@@ -2,11 +2,11 @@ package oanda
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 
+	log "github.com/Sirupsen/logrus"
 	"github.com/pkg/errors"
 )
 
@@ -23,7 +23,7 @@ func (c *Client) ListAccounts() (*AccountContainer, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "Could not build request")
 	}
-	fmt.Println("Request URL:", req.URL)
+	log.Debugln("Request URL:", req.URL)
 
 	req.Header.Set("Authorization", "Bearer "+c.Token)
 	req.Header.Set("Content-Type", "application/json")

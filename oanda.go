@@ -4,7 +4,10 @@ package oanda
 import (
 	"net"
 	"net/http"
+	"os"
 	"time"
+
+	log "github.com/Sirupsen/logrus"
 
 	"github.com/pkg/errors"
 )
@@ -43,6 +46,12 @@ func newClient(env string, token string, httpClient *http.Client) (*Client, erro
 		Client: httpClient,
 		Host:   host,
 	}, nil
+}
+
+func init() {
+	if os.Getenv("DEBUG") != "" {
+		log.SetLevel(log.DebugLevel)
+	}
 }
 
 // NewFxPracticeClient will return a new instance of an Oanda client, ready for practice trading
