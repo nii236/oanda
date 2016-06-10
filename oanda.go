@@ -14,6 +14,7 @@ import (
 
 // Client is an instance of the Oanda client
 type Client struct {
+	ID     string
 	Token  string
 	Client *http.Client
 	Host   string

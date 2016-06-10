@@ -14,10 +14,25 @@ func TestListAccounts(t *testing.T) {
 		t.Error(errors.Cause(err))
 		return
 	}
-	t.Log(accounts)
-
 	got := accounts.AccountProperties[0].ID
-	expected := "123-456-7891234-567"
+	expected := "101-001-100000-001"
+
+	if got != expected {
+		t.Errorf("ERROR: Got %s, expected %s", got, expected)
+	}
+}
+
+func TestGetAccount(t *testing.T) {
+	s, c := testTools(200, loadStub("./stubs/account/account.json"))
+	defer s.Close()
+	account, err := c.AccountDetails("101-001-100000-001")
+	if err != nil {
+		t.Fatal(errors.Cause(err))
+		return
+	}
+	t.Log(account)
+	got := account.ID
+	expected := "101-001-100000-001"
 
 	if got != expected {
 		t.Errorf("ERROR: Got %s, expected %s", got, expected)

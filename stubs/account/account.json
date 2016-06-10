@@ -1,0 +1,81 @@
+{
+  "account": {
+    "id": "101-001-100000-001",
+    "withdrawalLimit": "43631.19388",
+    "unrealizedPL": "-0.00604",
+    "resettablePL": "-56052.22079",
+    "positionValue": "95.89747",
+    "pl": "-56052.22079",
+    "pendingOrderCount": 1,
+    "openTradeCount": 1,
+    "openPositionCount": 1,
+    "marginUsed": "1.91795",
+    "hedgingEnabled": false,
+    "currency": "CHF",
+    "createdTime": "2015-08-12T18:21:00.697504698Z",
+    "createdByUserID": 100000,
+    "balance": "43633.11787",
+    "alias": "my test account",
+    "NAV": "43633.11183",
+    "marginAvailable": "43631.19388",
+    "marginCloseoutMarginUsed": "1.91751",
+    "marginCloseoutNAV": "43633.11787",
+    "marginCloseoutPercent": "0.00002",
+    "marginCloseoutPositionValue": "95.87543",
+    "marginCloseoutUnrealizedPL": "0.00000",
+    "marginRate": "0.01",
+    "lastTransactionID": "5282",
+    "trades": [
+      {
+        "unrealizedPL": "-0.00604",
+        "state": "OPEN",
+        "currentUnits": "100",
+        "financing": "0.00000",
+        "id": "5281",
+        "initialUnits": "100",
+        "instrument": "USD_CAD",
+        "openTime": "2016-06-08T18:45:30.792032154Z",
+        "price": "1.27090",
+        "realizedPL": "0.00000"
+      }
+    ],
+    "positions": [
+      {
+        "instrument": "USD_CAD",
+        "pl": "-482.95990",
+        "unrealizedPL": "-0.00604",
+        "resettablePL": "-482.95990",
+        "short": {
+          "unrealizedPL": "0.00000",
+          "units": "0",
+          "resettablePL": "0.00000",
+          "pl": "0.00000"
+        },
+        "long": {
+          "unrealizedPL": "-0.00604",
+          "units": "100",
+          "tradeIDs": [ "5281" ],
+          "resettablePL": "-482.95990",
+          "pl": "-482.95990",
+          "averagePrice": "1.27090"
+        }
+      }
+    ],
+    "orders": [
+      {
+        "id": "5282",
+        "createTime": "2016-06-08T18:45:55.116595045Z",
+        "type": "MARKET_IF_TOUCHED",
+        "state": "PENDING",
+        "instrument": "USD_CAD",
+        "units": "-100",
+        "timeInForce": "GTD",
+        "gtdTime": "2016-06-15T18:45:52.000000000Z",
+        "triggerCondition": "TRIGGER_DEFAULT",
+        "partialFill": "DEFAULT_FILL",
+        "positionFill": "POSITION_DEFAULT",
+        "price": "1.40000"
+      }
+    ]
+  }
+}
