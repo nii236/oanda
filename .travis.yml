@@ -3,6 +3,7 @@ sudo: false
 before_install:
 - go get github.com/axw/gocov/gocov
 - go get github.com/Masterminds/glide
+install:
 - glide install
 go:
 - 1.6
