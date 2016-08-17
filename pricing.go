@@ -7,6 +7,8 @@ import (
 	"net/url"
 	"strings"
 
+	log "github.com/Sirupsen/logrus"
+
 	"github.com/pkg/errors"
 )
 
@@ -33,19 +35,22 @@ func (c *Client) GetPrices(accountID string, instruments []string, since string)
 	}
 
 	req.Header.Set("Authorization", "Bearer "+c.Token)
+	log.Debugln("Bearer " + c.Token)
 	req.Header.Set("Content-Type", "application/json")
 	resp, err := c.Client.Do(req)
-
 	if err != nil {
 		return nil, errors.Wrap(err, "Could not execute request")
 	}
-
 	defer resp.Body.Close()
+	if resp.StatusCode != 200 {
+		return nil, errors.New("Non 200 response: " + resp.Status)
+	}
 	b, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return nil, errors.Wrap(err, "Could not read from resp body")
 	}
 	err = json.Unmarshal(b, &result)
+
 	if err != nil {
 		return nil, errors.Wrap(err, "Could not unmarshal JSON")
 	}

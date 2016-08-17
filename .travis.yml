@@ -1,0 +1,16 @@
+language: go
+sudo: false
+before_install:
+- go get github.com/axw/gocov/gocov
+- go get github.com/Masterminds/glide
+- glide install
+go:
+- 1.6
+script:
+- gocov test $(glide nv) | gocov report
+notifications:
+  slack:
+    on_start: never
+    email: false
+    rooms:
+      secure: pktuqsYg/lBSuiKQFiovp+VmvlsGvj0cyar397B0380QJoXlwNqWGcnY4GArFTaO0BuoEU5UNhfvxxMeGViFPf1D6Y6YeRItAwVxLGUcTNvN+8mVXOKaBBlB/V5RKfwab6xiMERsIi+tseWnyGsvIwuXRd9m6KhF0sNfSaQIq5cN8Y20+ILQ+DFij6gGCbhSl9gd7Zesl836sUjeR53fnmo2pGYoEP/gS1x/VcaA8pisWbRjg1IjRrHv9aFfuWUehsqq+k0id79wo3Zzk/qz6IXqfqFgjsyOom6WLm5ay7VqvZRUe5b71cI8uSaqcatX+t+kfs2H739lxvhrnv4D6gP9spOJAqjGpsf9JzULvPhOI7lzI5wEbK86D1tZ8x0Puf3CyPnJcuItcmanAr3UO0yWQUzJ4SKnlx0lqgxyOKx7OZqeIoMobJgu2Zz3s6fRHaxn5UVvliH8uyIHZ4q2Dg9XtuDLw4iqmSAhA8+WxiIA2LMCXs0kksKrXa893WH9ttxjKW6RzUaokEc92/atbuA9zfsbG9FTdzckxVjfvD0EHojsmzekT/dQSwmXQy25rAYEbb69N1GRiMdlN84Z+kz+2Vq8cyNdYRtIXdUJ/FdTN2HyZBOfeNTyRg6g411usXsKMi0tagKF6JPcEgAXpAuGJG3svcEUt2kDJ6lP6Uw=

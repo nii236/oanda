@@ -53,6 +53,7 @@ func init() {
 	if os.Getenv("DEBUG") != "" {
 		log.SetLevel(log.DebugLevel)
 	}
+	log.Debugln("Debug mode enabled")
 }
 
 // NewFxPracticeClient will return a new instance of an Oanda client, ready for practice trading
