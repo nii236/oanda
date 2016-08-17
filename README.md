@@ -1,4 +1,5 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/nii236/oanda)](https://goreportcard.com/report/github.com/nii236/oanda)
+[![Build Status](https://travis-ci.org/nii236/oanda.svg?branch=develop)](https://travis-ci.org/nii236/oanda)
 
 # Oanda Client API
 Oanda released V20 of their REST API recently, and there has been no implementations of it yet for Go. This is an attempt at filling that gap.
