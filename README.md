@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/nii236/oanda.png?label=ready&title=Ready)](http://waffle.io/nii236/oanda)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nii236/oanda)](https://goreportcard.com/report/github.com/nii236/oanda)
 [![Build Status](https://travis-ci.org/nii236/oanda.svg?branch=develop)](https://travis-ci.org/nii236/oanda)
 
