@@ -51,7 +51,7 @@ type CandlesContainer struct {
 	Candles []Candle
 }
 
-// Candle contains informations concerning a candle
+// Candle contains informations concerning a Candle
 type Candle struct {
 	Ask      OHLC   `json:"ask"`
 	Bid      OHLC   `json:"bid"`

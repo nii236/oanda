@@ -70,7 +70,6 @@ func (c *Client) GetCandles(instrument string, args ...CandlesArg) (*CandlesCont
 }
 
 // Arguments
-////////////////////////////////////////////////////////////////////////////////
 
 type CandlesArg interface {
 	applyCandlesArg(*url.Values)
@@ -90,47 +89,46 @@ type (
 )
 
 // Private
-////////////////////////////////////////////////////////////////////////////////
 
-func (p CandlesPrice) applyCandlesArg(v *url.Values) {
-	v.Set("price", string(p))
+func (cp CandlesPrice) applyCandlesArg(v *url.Values) {
+	v.Set("price", string(cp))
 }
 
-func (g CandlesGranularity) applyCandlesArg(v *url.Values) {
-	v.Set("granularity", string(g))
+func (cg CandlesGranularity) applyCandlesArg(v *url.Values) {
+	v.Set("granularity", string(cg))
 }
 
-func (c CandlesCount) applyCandlesArg(v *url.Values) {
-	v.Set("count", strconv.Itoa(int(c)))
+func (cc CandlesCount) applyCandlesArg(v *url.Values) {
+	v.Set("count", strconv.Itoa(int(cc)))
 }
 
-func (f CandlesFrom) applyCandlesArg(v *url.Values) {
-	tf := time.Time(f).Format(candlesTimeFormat)
+func (cf CandlesFrom) applyCandlesArg(v *url.Values) {
+	tf := time.Time(cf).Format(candlesTimeFormat)
 	v.Set("from", tf)
 }
 
-func (t CandlesTo) applyCandlesArg(v *url.Values) {
-	tf := time.Time(t).Format(candlesTimeFormat)
+func (ct CandlesTo) applyCandlesArg(v *url.Values) {
+	tf := time.Time(ct).Format(candlesTimeFormat)
 	v.Set("to", tf)
 }
 
-func (s CandlesSmooth) applyCandlesArg(v *url.Values) {
-	v.Set("smooth", strconv.FormatBool(bool(s)))
+func (cs CandlesSmooth) applyCandlesArg(v *url.Values) {
+	v.Set("smooth", strconv.FormatBool(bool(cs)))
 }
 
-func (i CandlesIncludeFirst) applyCandlesArg(v *url.Values) {
-	v.Set("includeFirst", strconv.FormatBool(bool(i)))
+func (cif CandlesIncludeFirst) applyCandlesArg(v *url.Values) {
+	v.Set("includeFirst", strconv.FormatBool(bool(cif)))
 }
 
-func (da CandlesDailyAlign) applyCandlesArg(v *url.Values) {
-	v.Set("dailyAlignment", strconv.Itoa(int(da)))
+func (cda CandlesDailyAlign) applyCandlesArg(v *url.Values) {
+	v.Set("dailyAlignment", strconv.Itoa(int(cda)))
 }
 
-func (at CandlesAlignTimezone) applyCandlesArg(v *url.Values) {
-	loc := time.Location(at)
+func (cat CandlesAlignTimezone) applyCandlesArg(v *url.Values) {
+	loc := time.Location(cat)
 	v.Set("alignmentTimezone", loc.String())
 }
 
-func (wa CandlesWeeklyAlign) applyCandlesArg(v *url.Values) {
-	v.Set("weeklyAlignment", time.Weekday(wa).String())
+func (cwa CandlesWeeklyAlign) applyCandlesArg(v *url.Values) {
+	v.Set("weeklyAlignment", time.Weekday(cwa).String())
 }

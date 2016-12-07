@@ -25,8 +25,12 @@ func main() {
 	fmt.Println(0, container.Candles[0])
 	fmt.Println(nbr, container.Candles[nbr-1])
 
-	// Test with all options
-	loc, _ := time.LoadLocation("Europe/Paris")
+	// Test with all options (except 'CandlesTo')
+	loc, err := time.LoadLocation("Europe/Paris")
+	if err != nil {
+		panic(err)
+	}
+
 	container, err = c.GetCandles(
 		"EUR_USD",
 		oanda.CandlesAlignTimezone(*loc),
@@ -37,7 +41,6 @@ func main() {
 		oanda.CandlesIncludeFirst(false),
 		oanda.CandlesPrice("BA"),
 		oanda.CandlesSmooth(true),
-		//oanda.CandlesTo(time.Now().AddDate(0, -1, 0)), -> You can't set From and To at the same time
 		oanda.CandlesWeeklyAlign(time.Monday),
 	)
 	if err != nil {
