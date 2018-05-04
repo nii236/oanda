@@ -1,31 +1,3 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/nii236/oanda)](https://goreportcard.com/report/github.com/nii236/oanda)
-[![Build Status](https://travis-ci.org/nii236/oanda.svg?branch=develop)](https://travis-ci.org/nii236/oanda)
-
-# Oanda Client API
-
-Oanda released V20 of their REST API recently, and there has been no implementations of it yet for Go. This is an attempt at filling that gap.
-
-## Installation
-
-Get the package:
-
-```
-brew install glide
-go get -d github.com/nii236/oanda
-cd $GOPATH/src/github.com/nii236/oanda/
-glide install
-```
-
-## Usage
-
-Only the following endpoints have been implemented so far:
-
-* Accounts - List Accounts
-* Pricing - Current Prices
-
-Write your main program. This example will poll every single for the latest ticker data.
-
-```go
 package main
 
 import (
@@ -125,14 +97,3 @@ func main() {
 
 	}
 }
-```
-
-## Contributing
-
-Help is needed implementing all of the REST API endpoints. They are listed in interfaces.go.
-
-1.  Fork it!
-2.  Create your feature branch: `git checkout -b my-new-feature`
-3.  Commit your changes: `git commit -am 'Add some feature'`
-4.  Push to the branch: `git push origin my-new-feature`
-5.  Submit a pull request

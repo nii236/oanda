@@ -1,6 +1,0 @@
-package: github.com/nii236/oanda
-import:
-- package: github.com/Sirupsen/logrus
-  version: ^0.10.0
-- package: github.com/pkg/errors
-  version: ^0.7.0
