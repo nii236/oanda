@@ -51,3 +51,8 @@ type DetailsResponse struct {
 	} `json:"account"`
 	LastTransactionID string `json:"lastTransactionID"`
 }
+
+type Provider interface {
+	List() (*ListResponse, error)
+	Details(accountID string) (*DetailsResponse, error)
+}

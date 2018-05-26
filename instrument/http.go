@@ -3,6 +3,7 @@ package instrument
 import (
 	"encoding/json"
 	"io/ioutil"
+	"net"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -15,11 +16,34 @@ const (
 	candlesTimeFormat = "2006-01-02T15:04:05Z"
 )
 
-func (c *Client) GetCandles(instrument string, args ...CandlesArg) (*CandlesContainer, error) {
+// Service implements Instrument provider
+type Service struct {
+	*http.Client
+	host  string
+	token string
+}
+
+func New(host, token string) *Service {
+	c := &http.Client{
+		Transport: &http.Transport{
+			Proxy: http.ProxyFromEnvironment,
+			Dial: (&net.Dialer{
+				Timeout:   30 * time.Second,
+				KeepAlive: 30 * time.Second,
+			}).Dial,
+			TLSHandshakeTimeout: 10 * time.Second,
+			MaxIdleConnsPerHost: 2,
+		},
+	}
+
+	return &Service{c, host, token}
+}
+
+func (c *Service) GetCandles(instrument string, args ...CandlesArg) (*CandlesContainer, error) {
 	var result CandlesContainer
 
 	// Set url base
-	u, err := url.Parse(c.Host)
+	u, err := url.Parse(c.host)
 	if err != nil {
 		return nil, errors.Wrap(err, "Could not parse URL")
 	}
@@ -39,7 +63,7 @@ func (c *Client) GetCandles(instrument string, args ...CandlesArg) (*CandlesCont
 	}
 
 	// Set header
-	req.Header.Set("Authorization", "Bearer "+c.Token)
+	req.Header.Set("Authorization", "Bearer "+c.token)
 	req.Header.Set("Content-Type", "application/json")
 
 	// Execute request

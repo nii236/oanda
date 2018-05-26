@@ -64,3 +64,8 @@ type StreamResponse struct {
 	Tradeable   bool   `json:"tradeable"`
 	Instrument  string `json:"instrument"`
 }
+
+type Provider interface {
+	Get(instruments []string) (*GetResponse, error)
+	Stream(instruments []string, since string) (chan *StreamResponse, error)
+}

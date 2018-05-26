@@ -22,7 +22,6 @@ func (s *Service) Stream(instruments []string, since string) (chan *StreamRespon
 	q := &url.Values{}
 	q.Set("instruments", strings.Join(instruments, ","))
 	u.RawQuery = q.Encode()
-	fmt.Println("Fetching prices from:", u.String())
 	var req *http.Request
 	if since != "" {
 		// Have to append raw string for since manually, since url package escapes the colons

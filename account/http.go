@@ -67,23 +67,3 @@ func (s *Service) Details(accountID string) (*DetailsResponse, error) {
 
 	return result, nil
 }
-
-// AccountSummary will get a summary for a single Account that a client has access to.
-func (s *Service) AccountSummary() error {
-	return errors.New("Not implemented yet")
-}
-
-// AccountInstruments will get the list of tradeable instruments for the given Account.
-func (s *Service) AccountInstruments() error {
-	return errors.New("Not implemented yet")
-}
-
-// ConfigureAccount will set the client-configurable portions of an Account.
-func (s *Service) ConfigureAccount() error {
-	return errors.New("Not implemented yet")
-}
-
-// PollAccountUpdates will poll an Account for its current state and changes since a specified TransactionID.
-func (s *Service) PollAccountUpdates() error {
-	return errors.New("Not implemented yet")
-}

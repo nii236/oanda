@@ -22,3 +22,7 @@ type OHLC struct {
 	Low   string `json:"l"`
 	Close string `json:"c"`
 }
+
+type Provider interface {
+	GetCandles(instrument string, args ...CandlesArg) (*CandlesContainer, error)
+}
